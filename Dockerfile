@@ -6,6 +6,9 @@ COPY ./libs/ /compiler/
 # libncursesw5 is required for GDB to run
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y libncursesw5 ca-certificates zlib1g-dev
 
+# ninja build tool
+RUN DEBIAN_FRONTEND=noninteractive apt install -y ninja-build
+
 # GDB requires python3.8 for some reason, so install it
 RUN mkdir /python_build
 RUN wget https://www.python.org/ftp/python/3.8.17/Python-3.8.17.tgz -O /python_build/python.tgz
